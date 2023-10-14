@@ -1,25 +1,29 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
 
-        s_list = list(s)
-        t_list = list(t)
-
-        s_list.sort()
-        t_list.sort()
-
-        print(s_list)
-        print(t_list)
-
-        count = 0
+        if len(s)!=len(t):
+            return False
         
+        frequency = {}
 
-        while len(s_list) == len(t_list):
-            for i in range(len(s_list)):
-                if s_list[i] == t_list[i]:
-                    i+=1
-                    # return True
-                else:
-                    return False
-            return True
+        for char in s:
+            frequency[char] = frequency.get(char, 0)+1
+
+        for char in t:
+
+            if char not in frequency:
+                return False
+
+            frequency[char]-=1
+
+            if frequency[char] < 0:
+                return False
+
+        return True
+
+
+
+
+
 
         
