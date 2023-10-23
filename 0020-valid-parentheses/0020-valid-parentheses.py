@@ -1,19 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-    
-        closeToOpen = {")":"(","}":"{","]":"["}
+        c2o = {")":"(","}":"{","]":"["}
 
         stack = []
 
         for char in s:
-            if char in closeToOpen:
-                if stack and stack[-1] == closeToOpen[char]:
+            if char in c2o:
+                if stack and stack[-1] == c2o[char]:
                     stack.pop()
-            
                 else:
                     return False
+
             else:
                 stack.append(char)
-        return True if not stack else False
+
+        if stack:
+            return False
+        else:
+            return True
+
 
         
