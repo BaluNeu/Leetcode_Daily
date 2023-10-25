@@ -8,16 +8,16 @@ class Solution:
             if char in c2o:
                 if stack and stack[-1] == c2o[char]:
                     stack.pop()
+
                 else:
                     return False
-
             else:
                 stack.append(char)
 
-        if stack:
-            return False
-        else:
-            return True
+        if not stack:
+            return True 
+        return False
+
 
 
         
