@@ -6,30 +6,38 @@
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
 
+    #1. create a dummy node
 
-        # Create a dummy node
+        dummy  = ListNode(0,head)
 
-        dummy = ListNode(0,head)
+    #2. left at dummy and right at n
 
         left = dummy
+
         right = head
 
-        while n > 0 and right:
+        while n>0 and right:
             right = right.next
             n-=1
 
-        # two pointers
-
-        # place the  right pointer at n
+    #3. keep traversing untill right is none
 
         while right:
             left = left.next
             right = right.next
 
+    #4. left will be at required position
+
         left.next = left.next.next
 
-        
+    #5 return dummy.next (head)
+
         return dummy.next
+
+
+
+
+
 
 
 
