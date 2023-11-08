@@ -18,8 +18,9 @@ class Solution:
         while queue:
 
             level = []
+            level_size = len(queue)
 
-            for i in range(len(queue)):
+            for i in range(level_size):
                 current = queue.popleft()
 
                 if current:
